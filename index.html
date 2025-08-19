@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quarterly Earnings — Interactive RevealJS Deck</title>
+
+    <!-- RevealJS core & theme via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
+
+    <!-- Code syntax highlighting (GitHub theme) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
+
+    <style>
+      /* Custom tweaks */
+      .reveal .footer {
+        position: fixed; left: 0; right: 0; bottom: 12px; text-align: center; font-size: 14px; opacity: 0.6;
+      }
+      .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .kpi .card { padding: 1rem; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,.08); }
+      .brand { font-weight: 700; letter-spacing: .02em; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Title -->
+        <section>
+          <h1>Quarterly Earnings Report</h1>
+          <p class="brand">Modern Interactive Presentation (RevealJS)</p>
+          <p>Prepared by: Technical Consultant — Major Financial Institution</p>
+          <p>Contact: <strong>24ds3000011@ds.study.iitm.ac.in</strong></p>
+          <p style="font-size: 0.9em; opacity: .7">Aug 20, 2025</p>
+          <aside class="notes">
+            Welcome stakeholders. Use arrow keys to navigate. Press <kbd>S</kbd> for speaker notes, <kbd>F</kbd> for fullscreen, <kbd>?</kbd> for help. This deck demonstrates Markdown, fragments, code highlighting, math, and notes.
+          </aside>
+        </section>
+
+        <!-- Markdown slide (required) -->
+        <section data-markdown>
+          <textarea data-template>
+## Highlights (Markdown slide)
+
+- **Revenue:** $4.2B (↑ 7% YoY)
+- **Operating Margin:** 19.4%
+- **EPS (Diluted):** $2.18
+
+---
+
+### Segment Performance
+
+1. Retail Banking — steady deposit growth
+2. Institutional — record pipelines
+3. Markets — elevated client activity
+
+_Use left/right to navigate; down for sub-slides where available._
+
+          </textarea>
+          <aside class="notes">This slide is authored in Markdown using the RevealMarkdown plugin. Keep the bullets tight and outcome-focused.</aside>
+        </section>
+
+        <!-- Fragments / animations (required) -->
+        <section>
+          <h2>Key KPIs (Progressive Reveal)</h2>
+          <div class="kpi">
+            <div class="card fragment">
+              <h3>Net Interest Income</h3>
+              <p>$1.6B <small>(+4% QoQ)</small></p>
+            </div>
+            <div class="card fragment fade-up">
+              <h3>Non-Interest Revenue</h3>
+              <p>$2.6B <small>(+9% YoY)</small></p>
+            </div>
+            <div class="card fragment fade-in-then-semi-out">
+              <h3>Cost-to-Income</h3>
+              <p>58% <small>(target &lt; 55%)</small></p>
+            </div>
+          </div>
+          <aside class="notes">Advance slowly to pace the narrative. Each KPI appears with a fragment animation to emphasize the story arc.</aside>
+        </section>
+
+        <!-- Code sample with syntax highlighting (required) -->
+        <section>
+          <h2>Code: Quick Sensitivity (Python)</h2>
+          <pre><code class="language-python" data-line-numbers="1-8|10-18|20-28">
+import numpy as np
+
+# Earnings sensitivity to NIM (Net Interest Margin) shift
+base_nim = 0.031   # 3.1%
+assets   = 180e9   # interest-earning assets
+
+shifts = np.array([-0.0005, 0.0, 0.0005, 0.0010])  # -5 to +10 bps
+
+def earnings_delta(nim_shift):
+    return assets * nim_shift
+
+for s in shifts:
+    delta = earnings_delta(s)
+    print(f"NIM shift: {s*1e4:.0f} bps → ΔNI: ${delta/1e6:,.1f}M")
+
+# Note: This ignores hedging/taxes for simplicity and is illustrative only.
+          </code></pre>
+          <aside class="notes">Highlight ranges show the flow: imports, core function, output loop. Use this to explain how small NIM shifts move net income.</aside>
+        </section>
+
+        <!-- Math (required) -->
+        <section>
+          <h2>Valuation & Risk (MathJax)</h2>
+          <p>Discounted Cash Flow (DCF) — Net Present Value:</p>
+          <p>\[\mathrm{NPV} = \sum_{t=1}^{T} \frac{FCF_t}{(1+r)^t} - I_0\]</p>
+          <p>Capital Asset Pricing Model (CAPM):</p>
+          <p>\[\mathbb{E}[R_i] = R_f + \beta_i\big(\mathbb{E}[R_m]-R_f\big)\]</p>
+          <aside class="notes">Remind the audience that we stress-tested results across r ∈ [7%, 11%] and scenario bands for FCF.</aside>
+        </section>
+
+        <!-- Speaker notes example (required) -->
+        <section>
+          <h2>Guidance & Outlook</h2>
+          <ul>
+            <li class="fragment">FY revenue growth: 6–8%</li>
+            <li class="fragment">Opex discipline: automation initiatives</li>
+            <li class="fragment">Capital return: buybacks within risk limits</li>
+          </ul>
+          <aside class="notes">
+            Key talking points: reiterate guidance range; emphasize operating leverage; mention liquidity buffers and stress outcomes. Be prepared for Q&A on deposit beta and CET1.
+          </aside>
+        </section>
+
+        <!-- Contact / cache-busting tip -->
+        <section>
+          <h2>Thank You</h2>
+          <p>Questions? <strong>24ds3000011@ds.study.iitm.ac.in</strong></p>
+          <p class="fragment">Tip: add <code>?v=2</code> to the URL to refresh GitHub Pages cache.</p>
+          <aside class="notes">Close confidently; invite questions. Provide the cache-busting tip if someone claims they still see an old version.</aside>
+        </section>
+
+      </div>
+      <div class="footer">Press <strong>S</strong> for speaker notes • Press <strong>?</strong> for keyboard help</div>
+    </div>
+
+    <!-- Reveal core -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <!-- Plugins: Markdown, Highlight, MathJax, Notes -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+
+    <script>
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        margin: 0.06,
+        controls: true,
+        progress: true,
+        hash: true,
+        history: true,
+        transition: 'slide',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ],
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+        }
+      });
+    </script>
+  </body>
+</html>
